@@ -48,16 +48,22 @@ This repository contains a Python application designed to extract disaster incid
 
 2. Run the script:
     ```sh
-    python main.py
+    python fetch_data.py
     ```
 
-3. Use the GUI to input your username, password, start date, start time, end date, and end time.
+3. Use the GUI to input your GeoNode username, password, start date, start time, end date, and end time.
 
 4. Click the "Export" button to process and upload the data.
+   
+5. (optional) Create an executable (.exe) file:
+   ```sh
+   pyinstaller fetch_data.spec
+   ```
 
 ## File Structure
 
-- `main.py`: Main script containing the GUI and data processing logic.
+- `fetch_data.py`: Main script containing the GUI and data processing logic.
+- `fetch_data.spec`: To create .exe file.
 - `README.md`: This file, providing an overview and instructions.
 
 ## Contributing
