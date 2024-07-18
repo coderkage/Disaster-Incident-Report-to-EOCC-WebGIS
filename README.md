@@ -2,6 +2,8 @@
 
 This repository contains a Python application designed to extract disaster incident reports from KoboToolbox, process the data, and upload it to the EOCC WebGIS platform. The application features a graphical user interface (GUI) for user-friendly interaction.
 
+![GUI Screenshot](gui_screenshot.png)
+
 ## Features
 
 - **User Authentication:** Secure login with username and password.
