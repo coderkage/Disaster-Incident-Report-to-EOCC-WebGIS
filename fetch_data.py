@@ -39,15 +39,16 @@ def submit_login():
     end_datetime_str = end_datetime.strftime("%Y-%m-%dT%H:%M:%S")
     
     #access your kobo account using your token
-    your_token = 'fc2a87b44c2c5dac8d01b3bb2c2ea2ea33258028' #Replace by your token
+    your_token = '**********' #Replace by your token
     kobo = KoboExtractor(your_token, 'https://kf.kobotoolbox.org/api/v2')
 
     #access data submitted to a specific form using the form id
-    form_id = 'a4q35bVsHRXsS6nyF4YcHY' #Replace by your Form ID
+    form_id = '**********' #Replace by your Form ID
     data = kobo.get_data(form_id, query=None, start=None, limit=None, submitted_after=None)
 
     df = pd.json_normalize(data['results'])
 
+    # The following code converts collective attributes of locations into individual, column names can vary so it should be changed accordingly.
     df['Geographical_Coordin_the_Hazard_Incident'] = df['Geographical_Coordin_the_Hazard_Incident'].fillna('0 0 0 0')
 
     df[['latitude', 'longitude', 'altitude', 'accuracy']] = df['Geographical_Coordin_the_Hazard_Incident'].str.split(' ', expand=True)
@@ -92,7 +93,7 @@ def submit_login():
 
     authorization_header_value = f'Basic {encoded_credentials}'
 
-    url = "http://180.211.110.22/api/v2/uploads/upload"
+    url = "http://your-geonode-dashboard-url/api/v2/uploads/upload" # Edit accordingly
 
 
     files = [
